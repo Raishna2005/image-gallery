@@ -14,12 +14,11 @@ const imageAlts = {
 
 for (let i = 0; i < imageFilenames.length; i++) {
   const newImage = document.createElement('img');
-  // Added './' prefix for correct local path resolution
-  newImage.setAttribute('src', `./${imageFilenames[i]}`);
+  newImage.setAttribute('src', `images/${imageFilenames[i]}`);
   newImage.setAttribute('alt', imageAlts[imageFilenames[i]]);
   
   newImage.addEventListener('click', function () {
-    displayedImage.src = `./${imageFilenames[i]}`;
+    displayedImage.src = `images/${imageFilenames[i]}`;
     displayedImage.alt = imageAlts[imageFilenames[i]];
   });
 
@@ -39,3 +38,4 @@ btn.addEventListener('click', function () {
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
   }
 });
+     
