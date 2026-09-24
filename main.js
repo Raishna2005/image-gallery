@@ -14,13 +14,12 @@ const imageAlts = {
 
 for (let i = 0; i < imageFilenames.length; i++) {
   const newImage = document.createElement('img');
-  // Fixed: removed 'images/' since images are in the root directory
-  newImage.setAttribute('src', imageFilenames[i]);
+  // Added './' prefix for correct local path resolution
+  newImage.setAttribute('src', `./${imageFilenames[i]}`);
   newImage.setAttribute('alt', imageAlts[imageFilenames[i]]);
   
   newImage.addEventListener('click', function () {
-    // Fixed: removed 'images/' here as well
-    displayedImage.src = imageFilenames[i];
+    displayedImage.src = `./${imageFilenames[i]}`;
     displayedImage.alt = imageAlts[imageFilenames[i]];
   });
 
