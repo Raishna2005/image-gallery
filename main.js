@@ -14,11 +14,13 @@ const imageAlts = {
 
 for (let i = 0; i < imageFilenames.length; i++) {
   const newImage = document.createElement('img');
-  newImage.setAttribute('src', `images/${imageFilenames[i]}`);
+  // Fixed: removed 'images/' since images are in the root directory
+  newImage.setAttribute('src', imageFilenames[i]);
   newImage.setAttribute('alt', imageAlts[imageFilenames[i]]);
   
   newImage.addEventListener('click', function () {
-    displayedImage.src = `images/${imageFilenames[i]}`;
+    // Fixed: removed 'images/' here as well
+    displayedImage.src = imageFilenames[i];
     displayedImage.alt = imageAlts[imageFilenames[i]];
   });
 
@@ -38,4 +40,3 @@ btn.addEventListener('click', function () {
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
   }
 });
-     
